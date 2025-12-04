@@ -3,7 +3,6 @@ Create a Python 3.10 virtual environment (mediapipe only supports 3.9-3.12) --> 
 
 pip install scikit-learn==1.2.2
 
-- Install compatible numpy version with scikit learn 1.2.2
 pip install numpy==1.24.3
 
 pip install opencv-python 
