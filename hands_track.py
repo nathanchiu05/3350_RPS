@@ -20,6 +20,7 @@ def extract_hand_landmark_features(hand_landmarks):
     X9_norm=landmark_features[18]
     Y9_norm=landmark_features[19]
 
+    #reference length calculations
     L_ref = ((X9_norm)**2 + (Y9_norm)**2)**0.5
 
     final_features = []
@@ -32,11 +33,11 @@ def plot_hand_landmarks_2d(hand_landmarks, handNum):
     x_coords = [landmark.x for landmark in hand_landmarks]
     y_coords = [landmark.y for landmark in hand_landmarks]
 
-    # Create a scatter plot
+    #Create a scatter plot
     plt.figure(figsize=(6, 6))
     plt.scatter(x_coords, y_coords, c='blue', label='Landmarks')
 
-    # Optionally, connect the landmarks based on HAND_CONNECTIONS
+    #Connect hand landmarks with lines
     for connection in mp_hands.HAND_CONNECTIONS:
         start_idx, end_idx = connection
         plt.plot(
@@ -52,6 +53,7 @@ def plot_hand_landmarks_2d(hand_landmarks, handNum):
     plt.legend()
     plt.show()
 
+#function used to grab hand landmarks from input images
 def get_landmarks(IMAGE_FILES):
     normalized_features_list = []
     wrist_coords=[]
@@ -84,8 +86,8 @@ def get_landmarks(IMAGE_FILES):
                 print(f"Hand {handNum}: {normalized_features}")
                 print ("-"*40)
 
-                # Plot the landmarks for the current hand
-                plot_hand_landmarks_2d(hand_landmarks.landmark, handNum)
+                # Plot the landmarks for the current hand (COMMENT OUT IF U DONT WANNA SEE HAND GRAPHS)
+                # plot_hand_landmarks_2d(hand_landmarks.landmark, handNum)
 
                 handNum += 1
 

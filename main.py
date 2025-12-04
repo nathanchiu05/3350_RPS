@@ -5,7 +5,7 @@ import numpy as np
 from hands_track import get_landmarks
 from identify_player import identify_hands
 
-IMAGE_FILES = ['sample_photos/TEST4.jpg']
+IMAGE_FILES = ['sample_photos/TEST2.jpg']
 landmarks, wrist_coords = get_landmarks(IMAGE_FILES)
 
 MODEL_FILENAME = 'rps_classifier_V1.pkl'
